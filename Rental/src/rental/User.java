@@ -14,11 +14,10 @@ public class User {
     private String Email;
     private String UserType;
 
-    public User(String UserID, String Password, String Email, String UserType) {
+    public User(String UserID, String Password, String Email) {
         this.UserID = UserID;
         this.Password = Password;
         this.Email = Email;
-        this.UserType = UserType;
     }
 
     public String getUserID() {
@@ -51,5 +50,20 @@ public class User {
 
     public void setUserType(String UserType) {
         this.UserType = UserType;
+    }
+    public static User createUser(String username, String password, String email) {
+        return new User(username, password, email);
+    }
+
+    public void resetPassword(String newPassword) {
+        this.Password = newPassword;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+               "username='" + UserID + '\'' +
+               ", email='" + Email + '\'' +
+               '}';
     }
 }
