@@ -2,9 +2,9 @@ import java.util.*;
 
 
 class Message {
-    private final String content;
-    private final String sender;
-    private final String recipient;
+    private String content;
+    private String sender;
+    private String recipient;
 
     public Message(String content, String sender, String recipient) {
         this.content = content;
@@ -33,7 +33,7 @@ interface MessageStorage {
 
 
 class InMemoryMessageStorage implements MessageStorage {
-    private final Map<String, List<Message>> inbox = new HashMap<>();
+    private Map<String, List<Message>> inbox = new HashMap<>();
 
     @Override
     public void saveMessage(Message message) {
@@ -48,7 +48,7 @@ class InMemoryMessageStorage implements MessageStorage {
 
 
 class MessagingService {
-    private final MessageStorage storage;
+    private MessageStorage storage;
 
     public MessagingService(MessageStorage storage) {
         this.storage = storage;
